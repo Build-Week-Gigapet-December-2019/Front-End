@@ -35,28 +35,28 @@ Ability to add multiple children for one parent.
 
 #### What do the top 3 similar apps do for their users?
 
-8 Mobile Apps To Track Your Child's Nutrition
-Meal Snap (Calorie Counting Magic)
-Blood Sugar Tracker (By Healthycloud.Com)
-Shopwell (Healthy Diet & Grocery Food Scanner)
-Fooducate
-Restaurant Nutrition
-5 A Day (Helps track fruit and vegetables for the day)
-Eight Glasses A Day
-Serious Nutrition Tracker
-Frameworks - Libraries
+1. Meal Snap (Calorie Counting Magic)
+2. Blood Sugar Tracker (By Healthycloud.Com)
+3. Shopwell (Healthy Diet & Grocery Food Scanner)
+4. Fooducate
+5. Restaurant Nutrition
+6. 5 A Day (Helps track fruit and vegetables for the day)
+7. Eight Glasses A Day
+8. Serious Nutrition Tracker
+
+### Frameworks - Libraries
 
 #### What 3rd party frameworks/libraries are you considering using?
 
-React
-React-dom
-React-router-dom
-React hook form
-Redux
-react-redux
-Semantic UI
-Styled-components
-Axios
+- React
+- React-dom
+- React-router-dom
+- React hook form
+- Redux
+- react-redux
+- Semantic UI
+- Styled-components
+- Axios
 
 #### Do APIs require you to contact its maintainer to gain access?
 
