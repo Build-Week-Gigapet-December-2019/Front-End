@@ -15,8 +15,8 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation isAuthenticated={isAuthenticated} />
-      <Route path="/" render={props => <Login {...props} setIsAuthenticated={setIsAuthenticated}  />} />
+      <Navigation isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
+      <Route path="/" render={props => <Login {...props} setIsAuthenticated={setIsAuthenticated} />} />
       <Route path="/signup" component={SignUp} />
       <Route path="/dashboard" component={Dashboard} />      
       <Route path='/entryform' component={EntryForm} />

@@ -1,10 +1,12 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 
 const Navigation = (props) => {
 
-    const removeCred = () => {
+    const removeCred = (props) => {
         localStorage.removeItem('token');
+
+        props.setIsAuthenticated(false)
     }
 
   return (
