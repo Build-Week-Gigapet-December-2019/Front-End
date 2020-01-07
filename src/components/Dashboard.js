@@ -1,9 +1,11 @@
 import React from "react";
+import AddChild from './entry/AddChild';
 
 function Dashboard() {
+
   return (
     <div className="App">
-      <h1>Hello!</h1>
+      <AddChild/>
     </div>
   );
 }
