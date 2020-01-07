@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { axiosWithAuth } from "../../utilities/axiosWithAuth";
 
 const AddChild = () => {
-
-  const parentId = localStorage.getItem('user_id');
+  const parentId = localStorage.getItem("user_id");
 
   const [child, setChild] = useState({
     name: "",
-    parent_id: parentId,
+    parent_id: parentId
+  });
+  const [childInfo, setChildInfo] = useState({
+    id: null,
+    name: ""
   });
 
   const handleChange = e => {
@@ -23,9 +26,12 @@ const AddChild = () => {
       .post("/api/parents/child", child)
       .then(res => {
         console.log(res.data);
+        setChildInfo({
+          id: res.data.id,
+          name: res.data.name
+        });
       })
       .catch(err => console.log(err));
-
   };
 
   return (
@@ -44,6 +50,8 @@ const AddChild = () => {
           <button>Add Child</button>
         </form>
       </section>
+      <h1>{childInfo.name}</h1>
+      <h1>{childInfo.id}</h1>
     </div>
   );
 };
