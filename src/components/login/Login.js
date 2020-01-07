@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { axiosWithAuth } from '../../utilities/axiosWithAuth';
+import React, { useState } from "react";
+import { axiosWithAuth } from "../../utilities/axiosWithAuth";
 
 const Login = props => {
   const [credentials, setCredentials] = useState({
-    username: '',
-    password: ''
+    username: "",
+    password: ""
   });
 
   const handleChange = e => {
@@ -17,32 +17,36 @@ const Login = props => {
   const login = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post('', credentials)
+      .post("/api/auth/login", credentials)
       .then(res => {
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user_id', res.data.user_id);
-        console.log(res.data);
-        props.history.push('');
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user_id", res.data.id);
+        props.history.push(`/dashboard/${res.data.id}`);
       })
       .catch(err => console.log(err));
+
+    // localStorage.setItem("token", credentials.password);
+    // props.history.push("/dashboard");
+
+    // props.setIsAuthenticated(localStorage.getItem("token"));
   };
 
   return (
     <div>
       <section>
-        <h1 className>Log in</h1>
+        <h1>Log in</h1>
         <form onSubmit={login}>
           <h1>Username:</h1>
           <input
-            type='text'
-            name='username'
+            type="text"
+            name="username"
             value={credentials.username}
             onChange={handleChange}
           />
           <h1>Password:</h1>
           <input
-            type='password'
-            name='password'
+            type="password"
+            name="password"
             value={credentials.password}
             onChange={handleChange}
           />

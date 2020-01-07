@@ -4,7 +4,6 @@ import { axiosWithAuth } from "../../utilities/axiosWithAuth";
 const SignUp = props => {
   const [credentials, setCredentials] = useState({
     username: "",
-    email: "",
     password: ""
   });
 
@@ -18,9 +17,9 @@ const SignUp = props => {
   const register = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post("", credentials)
+      .post("/api/auth/register", credentials)
       .then(res => {
-        props.history.push("/login");
+        props.history.push("/");
       })
       .catch(err => console.log(err));
   };
@@ -35,13 +34,6 @@ const SignUp = props => {
             type="text"
             name="username"
             value={credentials.username}
-            onChange={handleChange}
-          />
-          <h1>E-mail:</h1>
-          <input
-            type="text"
-            name="email"
-            value={credentials.email}
             onChange={handleChange}
           />
           <h1>Password:</h1>
