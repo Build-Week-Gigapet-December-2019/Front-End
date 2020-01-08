@@ -37,9 +37,7 @@ const AddChild = () => {
   return (
     <div>
       <section>
-        <h1>Add Child</h1>
         <form onSubmit={addChild}>
-          <h1>Child's Name:</h1>
           <input
             type="text"
             name="name"
@@ -50,8 +48,6 @@ const AddChild = () => {
           <button>Add Child</button>
         </form>
       </section>
-      <h1>{childInfo.name}</h1>
-      <h1>{childInfo.id}</h1>
     </div>
   );
 };
