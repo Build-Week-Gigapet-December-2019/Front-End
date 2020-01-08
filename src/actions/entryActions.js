@@ -50,7 +50,7 @@ export const DELETE_ENTRY_START = 'DELETE_ENTRY_START'
 export const DELETE_ENTRY_SUCCESS = 'DELETE_ENTRY_SUCCESS'
 export const DELETE_ENTRY_FAIL = 'DELETE_ENTRY_FAIL'
 
-export const deleteEntry = () => dispatch => {
+export const deleteEntry = (id) => dispatch => {
     dispatch({ type: DELETE_ENTRY_START })
     axiosWithAuth()
         .delete(`/api/parents/food/${id}`)

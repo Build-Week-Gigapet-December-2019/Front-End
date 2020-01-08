@@ -19,17 +19,19 @@ const Login = props => {
     axiosWithAuth()
       .post("/api/auth/login", credentials)
       .then(res => {
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("user_id", res.data.id);
-        props.history.push(`/dashboard/${res.data.id}`);
+        localStorage.setItem("token", res.data.token)
+        localStorage.setItem("user_id", res.data.id)
+        props.setIsAuthenticated(true)
+        props.history.push(`/dashboard/${res.data.id}`)
+        // this.forceUpdate()
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
 
     // localStorage.setItem("token", credentials.password);
     // props.history.push("/dashboard");
 
     // props.setIsAuthenticated(localStorage.getItem("token"));
-  };
+  }
 
   return (
     <div>
@@ -52,6 +54,8 @@ const Login = props => {
           />
           <button>Log In</button>
         </form>
+        <h2>Don't have an account?</h2>
+        <button onClick={()=> props.history.push(`/signup`)}>Sign Up</button>
       </section>
     </div>
   );

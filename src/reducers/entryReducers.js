@@ -22,77 +22,42 @@ const initialState = {
     // "proteins": 0,
     // "vegetables": 0,
     // "treats": 0,
-    postEntry: false,
-    fetchEntry: false,
-    putEntry: false,
-    deleteEntry: false,
+    // isPosting: false,
+    isFetching: false,
+    // isPutting: false,
+    // isDeleting: false,
     error: null
 }
 
-const reducer = (state = initialState, action) => {
+const  reducer= (state = initialState, action) => {
     switch (action.type) {
         case POST_ENTRY_START:
-            return {
-
-            }
-        case POST_ENTRY_SUCCESS:
-            return {
-                
-            }
-        case POST_ENTRY_FAIL:
-            return {
-                
-            }
-
-
         case FETCH_ENTRY_START:
+        case PUT_ENTRY_START:
+        case DELETE_ENTRY_START:
             return {
             ...state,
-            fetchEntry: true
+            isFetching: true
             }
+        case POST_ENTRY_SUCCESS:
         case FETCH_ENTRY_SUCCESS:
+        case PUT_ENTRY_SUCCESS:
+        case DELETE_ENTRY_SUCCESS:
             return {
             ...state,
             entryData: action.payload,
-            fetchEntry: false,
+            isFetching: false,
             error: ""
             }
+        case POST_ENTRY_FAIL:
         case FETCH_ENTRY_FAIL:
-            return {
-            ...state,
-            fetchEntry: false,
-            error: action.payload
-            }
-
-
-        case PUT_ENTRY_START:
-            return {
-
-            }
-        case PUT_ENTRY_SUCCESS:
-            return {
-                
-            }
         case PUT_ENTRY_FAIL:
-            return {
-                
-            }
-
-
-        case DELETE_ENTRY_START:
-            return {
-
-            }
-        case DELETE_ENTRY_SUCCESS:
-            return {
-                
-            }
         case DELETE_ENTRY_FAIL:
             return {
-                
+            ...state,
+            isFetching: false,
+            error: action.payload
             }
-
-
         default:
             return state
   }

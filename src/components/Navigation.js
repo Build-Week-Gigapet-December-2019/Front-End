@@ -6,23 +6,24 @@ const Navigation = (props) => {
     const removeCred = (props) => {
         localStorage.removeItem('token');
 
-        props.setIsAuthenticated(false)
+        // props.setIsAuthenticated(true)
     }
 
   return (
     <div>
       <div className="App">
         <div>
-        <NavLink to="/dashboard">Dashboard</NavLink>
+        <NavLink to={`/dashboard/${localStorage.getItem("user_id")}`}>Dashboard</NavLink>
         </div>
         <div>
-        <NavLink to="/entryform/:id">Entry Form</NavLink>
+        <NavLink to={`/entryform/${localStorage.getItem("user_id")}`}>Entry Form</NavLink>
         </div>
         <div>
-        <NavLink to="/entrylist/:id">Entry List</NavLink>
+        <NavLink to={`/entrylist/${localStorage.getItem("user_id")}`}>Entry List</NavLink>
         </div>
-        <div>
-        {props.isAuthenticated && <NavLink to="/" onClick={removeCred} >Logout</NavLink>}
+        <div className>
+          {props.isAuthenticated && <NavLink to="/" onClick={removeCred} >Logout</NavLink>}
+        
         </div>
       </div>
     </div>
