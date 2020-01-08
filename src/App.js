@@ -8,6 +8,7 @@ import "./App.css";
 import Navigation from "./components/Navigation";
 import EntryForm from "./components/entry/EntryForm";
 import EntryList from './components/entry/EntryList';
+import FooterComp from './components/FooterComp';
 
 function App() {
 
@@ -21,6 +22,9 @@ function App() {
       <PrivateRoute path="/dashboard/:id" component={Dashboard} />      
       <PrivateRoute path='/entryform/:childid' component={EntryForm} />
       <PrivateRoute path='/entrylist/:id' component={EntryList} />
+      <footer>
+          <FooterComp />
+        </footer>
     </div>
   );
 }
