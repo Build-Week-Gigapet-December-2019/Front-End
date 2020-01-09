@@ -23,7 +23,7 @@ export const FETCH_ENTRY_FAIL = 'FETCH_ENTRY_FAIL'
 export const fetchEntry = () => dispatch => {
     dispatch({ type: FETCH_ENTRY_START })
     axiosWithAuth()
-        .get(`/`)
+    .get(`/api/parents/food/parent/${localStorage.getItem('user_id')}`)
         .then(res => {
             dispatch({ type: FETCH_ENTRY_SUCCESS, payload: res.data })
         })
