@@ -13,7 +13,7 @@ import {POST_ENTRY_START,
 } from "../actions/entryActions"
 
 const initialState = {
-    entryData: {},
+    entryData: [],
     // "child_id": null,
     // "date": Date.now(),
     // "dairy": 0,
