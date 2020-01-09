@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { fetchEntry, putEntry, deleteEntry } from "../../actions/entryActions"
 
@@ -52,8 +52,8 @@ function EntryList() {
                     <p>{proteins}</p>
                     <p>{vegetables}</p>
                     <p>{treats}</p>
-                    <button onClick={()=> {entryEdit(state.entryData)}}>Edit Food Entry</button>
-                    <button onClick={()=> {entryDelete(id)}}>Delete Food Entry</button>
+                    <button type='submit' onClick={()=> {entryEdit(state.entryData)}}>Edit Food Entry</button>
+                    <button type='submit' onClick={()=> {entryDelete(id)}}>Delete Food Entry</button>
                   </div>
           })}
 
