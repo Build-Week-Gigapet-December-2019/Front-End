@@ -7,7 +7,6 @@ import Breadcrumb from "antd/es/breadcrumb";
 import "antd/es/breadcrumb/style/css";
 import Form from "antd/es/form";
 import "antd/es/form/style/css";
-import "antd/es/icon/style/css";
 import Input from "antd/es/input";
 import "antd/es/input/style/css";
 import Button from "antd/es/button";
