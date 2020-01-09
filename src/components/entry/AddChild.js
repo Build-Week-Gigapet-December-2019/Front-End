@@ -8,10 +8,6 @@ const AddChild = () => {
     name: "",
     parent_id: parentId
   });
-  const [childInfo, setChildInfo] = useState({
-    id: null,
-    name: ""
-  });
 
   const handleChange = e => {
     setChild({
@@ -21,25 +17,21 @@ const AddChild = () => {
   };
 
   const addChild = e => {
-    e.preventDefault();
+    // e.preventDefault();
     axiosWithAuth()
       .post("/api/parents/child", child)
       .then(res => {
         console.log(res.data);
-        setChildInfo({
-          id: res.data.id,
-          name: res.data.name
-        });
       })
       .catch(err => console.log(err));
   };
 
+  
+
   return (
     <div>
       <section>
-        <h1>Add Child</h1>
         <form onSubmit={addChild}>
-          <h1>Child's Name:</h1>
           <input
             type="text"
             name="name"
@@ -47,11 +39,9 @@ const AddChild = () => {
             value={child.name}
             onChange={handleChange}
           />
-          <button>Add Child</button>
+          <button type='submit'>Add Child</button>
         </form>
       </section>
-      <h1>{childInfo.name}</h1>
-      <h1>{childInfo.id}</h1>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import "./App.css";
 import Navigation from "./components/Navigation";
 import EntryForm from "./components/entry/EntryForm";
 import EntryList from './components/entry/EntryList';
+import FooterComp from './components/FooterComp';
 
 function App() {
 
@@ -15,12 +16,15 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
-      <Route exact path="/" render={props => <Login {...props} setIsAuthenticated={setIsAuthenticated} />} />
+      <Route path="/" render={props => <Navigation {...props} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
+      <Route exact path="/" render={props => <Login {...props} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
       <Route path="/signup" component={SignUp} />
       <PrivateRoute path="/dashboard/:id" component={Dashboard} />      
-      <PrivateRoute path='/entryform/:id' component={EntryForm} />
+      <PrivateRoute path='/entryform/:childid' component={EntryForm} />
       <PrivateRoute path='/entrylist/:id' component={EntryList} />
+      <footer>
+          <FooterComp />
+        </footer>
     </div>
   );
 }
