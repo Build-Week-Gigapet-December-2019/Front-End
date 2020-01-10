@@ -63,16 +63,3 @@ function EntryList() {
   );
 }
 export default EntryList
-
-
-// const [foodEntries, setFoodEntries] = useState([]);
-
-  //  useEffect(()=>{
-  //       axiosWithAuth()
-  //       .get(`/api/parents/food/parent/${localStorage.getItem('user_id')}`)
-  //       .then (res => {
-  //           console.log('entry list res', res)
-  //           setFoodEntries(res.data)
-  //       })
-  //       .catch(error => console.log(error, "ERROR"))
-  //   }, [])
