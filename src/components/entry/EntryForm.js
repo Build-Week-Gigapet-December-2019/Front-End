@@ -38,7 +38,8 @@ function EntryForm(props) {
     axiosWithAuth()
       .post(`/api/parents/food/${props.match.params.childid}`, foodEntry)
       .then(res => {
-        console.log(res.data)
+        console.log("It's me, it's me...respect.", res.data)
+        localStorage.setItem('child_id', res.data.child_id)
         props.history.push(`/entrylist/${localStorage.getItem('user_id')}`);
       })
       .catch(err => console.log(err));
