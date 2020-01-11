@@ -11,6 +11,7 @@ import Input from "antd/es/input";
 import "antd/es/input/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
+import '../../index.css';
 
 const { Content } = Layout;
 

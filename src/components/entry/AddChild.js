@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../../utilities/axiosWithAuth";
+import '../../index.css';
 
 const AddChild = () => {
   const parentId = localStorage.getItem("user_id");

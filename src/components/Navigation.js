@@ -7,8 +7,15 @@ import "antd/es/menu/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
 import './Navigation.css';
+import styled from 'styled-components';
+import '../index.css';
 
 const { Header } = Layout;
+
+const MenuStyle = styled.menu`
+background-color: #333;
+overflow: hidden;
+`;
 
 const Navigation = props => {
   const removeCred = () => {

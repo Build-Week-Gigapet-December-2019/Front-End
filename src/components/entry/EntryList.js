@@ -13,6 +13,7 @@ import Form from "antd/es/form";
 import "antd/es/form/style/css";
 import Input from "antd/es/input";
 import "antd/es/input/style/css";
+import '../../index.css';
 
 const { Content } = Layout;
 
