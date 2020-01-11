@@ -20,11 +20,12 @@ export const FETCH_ENTRY_START = 'FETCH_ENTRY_START'
 export const FETCH_ENTRY_SUCCESS = 'FETCH_ENTRY_SUCCESS'
 export const FETCH_ENTRY_FAIL = 'FETCH_ENTRY_FAIL'
 
-export const fetchEntry = () => dispatch => {
+export const fetchEntry = (childId, span) => dispatch => {
     dispatch({ type: FETCH_ENTRY_START })
     axiosWithAuth()
-    .get(`/api/parents/food/parent/${localStorage.getItem('user_id')}`)
+    .get(`/api/parents/entries/${childId}/${span}`)
         .then(res => {
+            console.log(res)
             dispatch({ type: FETCH_ENTRY_SUCCESS, payload: res.data })
         })
         .catch(err => dispatch({ type: FETCH_ENTRY_FAIL, payload: err }))

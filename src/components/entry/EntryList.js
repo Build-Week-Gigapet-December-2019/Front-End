@@ -17,7 +17,10 @@ import '../../index.css';
 
 const { Content } = Layout;
 
-function EntryList() {
+function EntryList(props) {
+  const [span, setSpan] = useState("month")
+  const [visible, setVisible] = useState(false);
+  const [entryToEdit, setEntryToEdit] = useState(null);
   const [foodEntry, setFoodEntry] = useState({
     dairy: null,
     fruits: null,
@@ -42,11 +45,13 @@ function EntryList() {
     };
   });
 
+// localStorage.getItem('child_id')
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchEntry());
-  }, [state.entryData.length]);
+    dispatch(fetchEntry(props.match.params.id, span));
+  }, [state.entryData.length, span]);
 
 
   const entryEdit = (e) => {
@@ -58,9 +63,6 @@ function EntryList() {
     console.log(id);
     dispatch(deleteEntry(id));
   };
-
-  const [visible, setVisible] = useState(false);
-  const [entryToEdit, setEntryToEdit] = useState(null);
 
   const showModal = id => {
     setVisible(true);
@@ -76,6 +78,23 @@ function EntryList() {
   const handleCancel = e => {
     setVisible(false);
   };
+
+  const timespanDay = () => {
+    console.log("I can haz fun today?")
+    setSpan('day')
+  }
+
+  const timespanWeek = () => {
+    console.log("I can haz fun last week?")
+    setSpan('week')
+  }
+
+  const timespanMonth = () => {
+    console.log("I can haz fun last month?")
+    setSpan('month')
+  }
+
+  console.log('Homies be frontin all', span)
 
   return (
     <Layout className="layout">
@@ -95,6 +114,10 @@ function EntryList() {
         >
           <h1>My Kids' Food Entries: </h1>
 
+          <button onClick={timespanDay}>Today</button>
+          <button onClick={timespanWeek}>Last 7 Days</button>
+          <button onClick={timespanMonth}>Last 30 Days</button>
+
           {state.entryData.length > 0 &&
             state.entryData.map(
               (
@@ -106,7 +129,8 @@ function EntryList() {
                   grains,
                   proteins,
                   vegetables,
-                  treats
+                  treats,
+                  child_id
                 },
                 index
               ) => {
@@ -119,6 +143,7 @@ function EntryList() {
                     <p>{proteins}</p>
                     <p>{vegetables}</p>
                     <p>{treats}</p>
+                    {console.log("HEY LOOK AT ME", child_id)}
                     <Button type="primary" onClick={() => showModal(id)}>
                       Edit Food Entry
                     </Button>
@@ -202,16 +227,4 @@ function EntryList() {
     </Layout>
   );
 }
-export default EntryList;
-
-// const [foodEntries, setFoodEntries] = useState([]);
-
-//  useEffect(()=>{
-//       axiosWithAuth()
-//       .get(`/api/parents/food/parent/${localStorage.getItem('user_id')}`)
-//       .then (res => {
-//           console.log('entry list res', res)
-//           setFoodEntries(res.data)
-//       })
-//       .catch(error => console.log(error, "ERROR"))
-//   }, [])
+export default EntryList
