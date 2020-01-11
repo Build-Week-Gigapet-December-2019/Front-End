@@ -16,7 +16,7 @@ import "antd/es/input/style/css";
 
 const { Content } = Layout;
 
-function EntryList() {
+function EntryList(props) {
   const [span, setSpan] = useState("month")
   const [visible, setVisible] = useState(false);
   const [entryToEdit, setEntryToEdit] = useState(null);
@@ -44,10 +44,12 @@ function EntryList() {
     };
   });
 
+// localStorage.getItem('child_id')
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchEntry(localStorage.getItem('child_id'), span));
+    dispatch(fetchEntry(props.match.params.id, span));
   }, [state.entryData.length, span]);
 
 

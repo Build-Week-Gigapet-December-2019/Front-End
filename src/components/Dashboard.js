@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { Link } from 'react-router-dom'
 import AddChild from './entry/AddChild';
 import Layout from "antd/es/layout";
 import "antd/es/layout/style/css";
@@ -36,8 +37,22 @@ function Dashboard(props) {
   <div style={{ background: "#fff", padding: 24, minHeight: "80vh", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} className="App">
     <h1>My Kids: </h1>
     {children.map((child, index) => {
-    return <div key={index}><h1>{child.name}</h1><button onClick={()=> sendToForm(child)}>Add Food Entry</button></div>
-    })}
+      console.log("********************", child)
+      return (
+        <div
+          key={index}>
+            <Link to={`/entrylist/${child && child.id}`}>
+              <h1>{child.name}</h1>
+            </Link>
+            <button onClick={e=>
+              sendToForm(child)
+            }
+            >
+              Add Food Entry
+            </button>
+        </div>
+      )})}
+
       <AddChild/>
     </div>
 </Content>
