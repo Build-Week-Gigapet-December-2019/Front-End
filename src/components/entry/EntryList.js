@@ -13,6 +13,8 @@ import Form from "antd/es/form";
 import "antd/es/form/style/css";
 import Input from "antd/es/input";
 import "antd/es/input/style/css";
+import '../../index.css';
+import './EntryList.css';
 
 const { Content } = Layout;
 
@@ -100,23 +102,26 @@ function EntryList(props) {
       <Content className="home-desktop-content" style={{ padding: "0 20px" }}>
         <Breadcrumb style={{ margin: "24px 0" }}></Breadcrumb>
         <div
-          style={{
-            background: "#fff",
-            padding: 24,
-            minHeight: "80vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-          className="App"
+          // style={{
+          //   background: "#fff",
+          //   padding: 24,
+          //   minHeight: "80vh",
+          //   display: "flex",
+          //   flexDirection: "column",
+          //   alignItems: "center",
+          //   justifyContent: "center"
+          // }}
+          
         >
           <h1>My Kids' Food Entries: </h1>
 
-          <button onClick={timespanDay}>Today</button>
-          <button onClick={timespanWeek}>Last 7 Days</button>
-          <button onClick={timespanMonth}>Last 30 Days</button>
+          <div className='entry-list-div'>
+            <button className='entry-list-btn mybtn' onClick={timespanDay}>Today</button>
+            <button className='entry-list-btn mybtn' onClick={timespanWeek}>Last 7 Days</button>
+            <button className='entry-list-btn mybtn' onClick={timespanMonth}>Last 30 Days</button>
+          </div>
 
+          <div className="entry-card-holder">
           {state.entryData.length > 0 &&
             state.entryData.map(
               (
@@ -134,14 +139,14 @@ function EntryList(props) {
                 index
               ) => {
                 return (
-                  <div key={index}>
-                    <p>{date}</p>
-                    <p>{dairy}</p>
-                    <p>{fruits}</p>
-                    <p>{grains}</p>
-                    <p>{proteins}</p>
-                    <p>{vegetables}</p>
-                    <p>{treats}</p>
+                  <div className='entry-list-card' key={index}>
+                    <p>Date: {date}</p>
+                    <p>Dairy: {dairy} servings</p>
+                    <p>Fruits: {fruits} servings</p>
+                    <p>Grains: {grains} servings</p>
+                    <p>Protiens: {proteins} servings</p>
+                    <p>Vegetables: {vegetables} servings</p>
+                    <p>Treats: {treats} servings</p>
                     {console.log("HEY LOOK AT ME", child_id)}
                     <Button type="primary" onClick={() => showModal(id)}>
                       Edit Food Entry
@@ -217,10 +222,11 @@ function EntryList(props) {
                     >
                       Delete Food Entry
                     </Button>
-                  </div>
+                  </div>                
                 );
               }
             )}
+        </div>
         </div>
       </Content>
     </Layout>

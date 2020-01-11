@@ -8,6 +8,8 @@ import Breadcrumb from "antd/es/breadcrumb";
 import "antd/es/breadcrumb/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
+import '../../index.css';
+
 
 const { Content } = Layout;
 

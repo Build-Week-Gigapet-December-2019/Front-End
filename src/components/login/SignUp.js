@@ -8,6 +8,9 @@ import "antd/es/breadcrumb/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
 import { useForm } from "react-hook-form";
+import '../../index.css';
+
+
 const { Content } = Layout;
 const SignUp = props => {
   const { register, handleSubmit, errors } = useForm();

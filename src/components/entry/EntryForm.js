@@ -11,6 +11,7 @@ import Input from "antd/es/input";
 import "antd/es/input/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
+import '../../index.css';
 
 const { Content } = Layout;
 
@@ -40,7 +41,7 @@ function EntryForm(props) {
       .then(res => {
         console.log("It's me, it's me...respect.", res.data)
         localStorage.setItem('child_id', res.data.child_id)
-        props.history.push(`/entrylist/${localStorage.getItem('user_id')}`);
+        props.history.push(`/dashboard/${localStorage.getItem('user_id')}`);
       })
       .catch(err => console.log(err));
   };

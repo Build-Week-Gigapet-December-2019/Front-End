@@ -9,13 +9,19 @@ import Navigation from "./components/Navigation";
 import EntryForm from "./components/entry/EntryForm";
 import EntryList from './components/entry/EntryList';
 import FooterComp from './components/FooterComp';
+import styled from 'styled-components';
+
+const Wrapper = styled.section`
+  padding: 4em;
+  background: linear-gradient(#f9f871, #7deca1);
+`;
 
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
-    <div className="App">
+    <Wrapper className="App">
       <Route path="/" render={props => <Navigation {...props} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
       <Route exact path="/" render={props => <Login {...props} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
       <Route path="/signup" component={SignUp} />
@@ -25,7 +31,7 @@ function App() {
       <footer>
           <FooterComp />
         </footer>
-    </div>
+    </Wrapper>
   );
 }
 export default App;

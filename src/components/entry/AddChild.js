@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../../utilities/axiosWithAuth";
+import '../../index.css';
+import './AddChild.css';
 
 const AddChild = () => {
   const parentId = localStorage.getItem("user_id");
@@ -31,15 +33,15 @@ const AddChild = () => {
   return (
     <div>
       <section>
-        <form onSubmit={addChild}>
-          <input
+        <form onSubmit={addChild} className='child-card'>
+          <input className='child-form-input'
             type="text"
             name="name"
             placeholder="Child's name"
             value={child.name}
             onChange={handleChange}
           />
-          <button type='submit'>Add Child</button>
+          <button type='submit' className='add-child-btn'>Add Child</button>
         </form>
       </section>
     </div>
