@@ -6,7 +6,8 @@ import "antd/es/layout/style/css";
 import Breadcrumb from "antd/es/breadcrumb";
 import "antd/es/breadcrumb/style/css";
 import {axiosWithAuth} from "../utilities/axiosWithAuth";
-import '../index.css';
+// import '../index.css';
+import './Dashboard.css';
 
 const { Content } = Layout;
 
@@ -33,14 +34,13 @@ function Dashboard(props) {
     
 
 <Layout className="layout">
-<Content className="home-desktop-content" style={{ padding: "0 20px" }}>
+<Content className="home-desktop-content" style={{ padding: "0 20px", height: '60vh' }}>
   <Breadcrumb style={{ margin: "24px 0" }}></Breadcrumb>
-  <div style={{ background: "#fff", padding: 24, minHeight: "80vh", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} className="App">
-    <h1>My Kids: </h1>
+  <div className="dashboard-parent">
     {children.map((child, index) => {
       console.log("********************", child)
       return (
-        <div
+        <div className='dashboard-card'
           key={index}>
             <Link to={`/entrylist/${child && child.id}`}>
               <h1>{child.name}</h1>
@@ -54,8 +54,9 @@ function Dashboard(props) {
         </div>
       )})}
 
-      <AddChild/>
+      
     </div>
+    <AddChild/>
 </Content>
 </Layout>
   );

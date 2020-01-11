@@ -41,7 +41,7 @@ function EntryForm(props) {
       .then(res => {
         console.log("It's me, it's me...respect.", res.data)
         localStorage.setItem('child_id', res.data.child_id)
-        props.history.push(`/entrylist/${localStorage.getItem('user_id')}`);
+        props.history.push(`/dashboard/${localStorage.getItem('user_id')}`);
       })
       .catch(err => console.log(err));
   };
