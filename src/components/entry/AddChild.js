@@ -23,7 +23,7 @@ const AddChild = () => {
     axiosWithAuth()
       .post("/api/parents/child", child)
       .then(res => {
-        console.log(res.data);
+        console.log('HERE HERE HERE ADD CHILD:', res.data);
       })
       .catch(err => console.log(err));
   };

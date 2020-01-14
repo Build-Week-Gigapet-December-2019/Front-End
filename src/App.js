@@ -10,6 +10,7 @@ import EntryForm from "./components/entry/EntryForm";
 import EntryList from './components/entry/EntryList';
 import FooterComp from './components/FooterComp';
 import styled from 'styled-components';
+import PetStatus from './components/petmoji/PetStatus';
 
 const Wrapper = styled.section`
   padding: 4em;
