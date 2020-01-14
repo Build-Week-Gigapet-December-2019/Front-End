@@ -8,6 +8,8 @@ import "antd/es/breadcrumb/style/css";
 import {axiosWithAuth} from "../utilities/axiosWithAuth";
 // import '../index.css';
 import './Dashboard.css';
+import PetStatus from './petmoji/PetStatus';
+
 
 const { Content } = Layout;
 
@@ -43,6 +45,7 @@ function Dashboard(props) {
         <div className='dashboard-card'
           key={index}>
             <Link to={`/entrylist/${child && child.id}`}>
+              <PetStatus childId={child.id} />
               <h1>{child.name}</h1>
             </Link>
             <button onClick={e=>

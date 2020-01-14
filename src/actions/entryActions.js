@@ -25,7 +25,7 @@ export const fetchEntry = (childId, span) => dispatch => {
     axiosWithAuth()
     .get(`/api/parents/entries/${childId}/${span}`)
         .then(res => {
-            console.log(res)
+            console.log(res.data)
             dispatch({ type: FETCH_ENTRY_SUCCESS, payload: res.data })
         })
         .catch(err => dispatch({ type: FETCH_ENTRY_FAIL, payload: err }))

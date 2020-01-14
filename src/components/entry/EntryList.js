@@ -43,7 +43,7 @@ function EntryList(props) {
       entryData: state.entryData,
       isFetching: state.isFetching,
       error: state.error
-    };
+    };    
   });
 
 // localStorage.getItem('child_id')
@@ -52,8 +52,10 @@ function EntryList(props) {
 
   useEffect(() => {
     dispatch(fetchEntry(props.match.params.id, span));
+    console.log('Entry Data Log:', props.match.params);
   }, [state.entryData.length, span]);
 
+  // console.log('State.entryData Returned', state.entryData);
 
   const entryEdit = (e) => {
     e.preventDefault()
