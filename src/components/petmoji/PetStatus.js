@@ -6,6 +6,7 @@ function PetStatus(props) {
 
     const [status, setStatus] = useState('TBD');
     const [foodData, setFoodData] = useState([]);
+    const [statusImg, setStatusImg] = useState(<img />)
      
     useEffect(()=>{
         axiosWithAuth()
@@ -50,12 +51,12 @@ function PetStatus(props) {
         return  totalAverage;
     })    
     
-
+    // SETS TOTALAVERAGE EQUEAL TO A STATUS LEVEL
     useEffect(() => {
         const getStatus = (prop) => {
 
             return prop > 5 ? setStatus('Excelent!')
-                 : prop === 5 ? setStatus('Great!')
+                 : prop === 5 ? setStatus('Grrreat!')
                  : prop >= 4 ? setStatus('Above Average!')
                  : prop >= 3 ? setStatus('Average')
                  : prop >= 2 ? setStatus('Poor')
@@ -64,11 +65,27 @@ function PetStatus(props) {
         }
 
         getStatus(totalAverage);
-      }, );      
+      }, );    
+      
+      // SETS STATUS LEVEL EQUAL TO A PET EMOTION IMAGE
+      useEffect(() => {
+        const getImage = () => {
+
+            return status === 'Excelent!' ? setStatusImg(<img src={require('../statusimages/StatusExcelent.png')} />)
+                 : status === 'Grrreat!' ? setStatusImg(<img src={require('../statusimages/StatusGreat.png')} />)
+                 : status === 'Above Average!' ? setStatusImg(<img src={require('../statusimages/StatusAboveAverage.png')} />)
+                 : status === 'Average' ? setStatusImg(<img src={require('../statusimages/StatusAverage.png')} />)
+                 : status === 'Poor' ? setStatusImg(<img src={require('../statusimages/StatusPoor.png')} />)
+                 : status === 'Weak' ? setStatusImg(<img src={require('../statusimages/StatusWeak.png')} />)
+                 : setStatusImg(<img src={require('../statusimages/StatusVeryWeak.png')} />);
+        }
+
+        getImage(status);
+      }, ); 
 
     return( 
         <div>
-            <p>Health is: {status}</p>
+            <p>Health is: {status} {statusImg} </p>
         </div>
     );
 }
