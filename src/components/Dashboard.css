@@ -1,13 +1,13 @@
 .dashboard-parent {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
     /* height: 50vh; */
 }
 
 .dashboard-card {
-    height: 100px;
-    width: 30%;
+    height: 250px;
+    width: 150px;
     border: 1px green solid;
     margin: 10px;
     border-radius: 10px;
