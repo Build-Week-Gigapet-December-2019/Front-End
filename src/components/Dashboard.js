@@ -36,7 +36,7 @@ function Dashboard(props) {
     
 
 <Layout className="layout">
-<Content className="home-desktop-content" style={{ padding: "0 20px", height: '60vh' }}>
+<Content>
   <Breadcrumb style={{ margin: "24px 0" }}></Breadcrumb>
   <div className="dashboard-parent">
     {children.map((child, index) => {
